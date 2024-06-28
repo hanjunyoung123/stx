@@ -34,12 +34,21 @@ body {
   height: 2000px;
 }
 /* 공통영역 */
-.container{
-    position: relative;
-    display: block;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+.container {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* background-color: rgb(203, 247, 232); */
+}
+/* clearfix */
+.clearfix::after{
+content: "";
+position: relative;
+display: block;
+width: 100%;
+clear: both;
 }
 /* 모달창 */
 /* top버튼 */
@@ -59,8 +68,8 @@ body {
   overflow: hidden;
   transition: all 0.5s;
 }
-.header:hover{
-    height: calc(330px + 80px);
+.header:hover {
+  height: calc(330px + 80px);
 }
 .header::before {
   content: "";
@@ -99,6 +108,7 @@ body {
 }
 /* 네비게이션 */
 .nav {
+  position: relative;
   width: calc(100% - 220px - 150px);
 
   float: left;
@@ -131,7 +141,7 @@ body {
   position: relative;
   width: 150px;
   height: 100%;
-  float: right;
+  float: left;
 }
 .lang-list {
   position: absolute;
@@ -167,68 +177,238 @@ body {
   content: none;
 }
 /* 비주얼 */
-.visual{
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 910px;
-    background: url("../images/img_visual01.png") no-repeat center;
-    background-size: cover;
-    margin-top: 80px;
+.visual {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 910px;
+  background: url("../images/img_visual01.png") no-repeat center fixed;
+  background-size: cover;
+  margin-top: 80px;
 }
-.visual-inner{
-    height: 100%;
-    padding-top: 1px;
-    position: relative;
+.visual-inner {
+  position: relative;
+  height: 100%;
+  padding-top: 1px;
 }
-.visual-slogan{
-    position: relative;
-    display: block;
-    font-size: 70px;
-    color: #fff;
-    font-weight: 500;
-    margin-top: 300px;
+.visual-slogan {
+  position: relative;
+  display: block;
+  font-size: 70px;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 245px;
 }
-.visual-txt{
-    position: relative;
-    display: block;
-    margin-top: 42px;
-    font-size: 21px;
-    color: #fff;
+.visual-txt {
+  position: relative;
+  display: block;
+  margin-top: 42px;
+  font-size: 21px;
+  color: #fff;
 }
-.visual-bt{
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    font-size: 0;
-    width: 33px;
-    height: 33px;
-    transform: translateX(-50%);
-    background: url("../images/bg_common.png") no-repeat;
-    background-position: -122px 0;
-    border: 0;
+.visual-bt {
+  display: block;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0;
+  width: 33px;
+  height: 33px;
+  background: url("../images/bg_common.png") no-repeat;
+  background-position: -122px 0;
+  border: 0;
 }
-.visual-slogan  p{
-    width: 60px;
-    height: 5px;
-    background-color: red;
-    position: absolute;
-    left: 0;
-    margin-top: -48px;
+/* 비지니스 */
+.business {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 100px 0;
+  background-color: #f8f8f8;
 }
-.business{
-    display: block;
-    position: relative;
-    /* font-size: 70px; */
-    width: 100%;
-    height: 200px;
-    text-align: center;
-    padding: 100px;
+.business-inner {
+  position: relative;
+  display: block;
 }
-.business-inner h2{
-    font-size: 44px;
+/* 비지니스 상단 */
+.business-top {
+  margin-bottom: 70px;
+  text-align: center;
 }
-.business-inner p{
-    margin-top: 25px;
+.business-title {
+  position: relative;
+  display: block;
+  font-size: 44px;
+  font-weight: 600;
+  color: #111;
+  padding-bottom: 31px;
+  background-color: aqua;
+}
+.business-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 37px);
+
+  width: 37px;
+  height: 4px;
+  background-color: #ed1c24;
+}
+.business-desc {
+  margin-top: 30px;
+}
+/* 비지니스 이미지 하단*/
+.business-bottom,
+.business-list {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 420px;
+}
+.business li {
+  position: relative;
+  display: block;
+  width: calc(100% / 5);
+  height: 420px;
+  float: left;
+  background: url("../images/img_business.png") no-repeat;
+  background-position: 0 0;
+}
+.business-list li:first-child {
+  background-position: calc(240px * 0) 0px;
+}
+.business-list li:nth-child(2) {
+  background-position: calc(240px * -1) 0px;
+}
+.business-list li:nth-child(3) {
+  background-position: calc(240px * -2) 0px;
+}
+.business-list li:nth-child(4) {
+  background-position: calc(240px * -3) 0px;
+}
+.business-list li:nth-child(5) {
+  background-position: calc(240px * -4) 0px;
+}
+.business-list li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(244, 128, 37, 0);
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  padding: 100px 0;
+  transition: all 0.5s;
+}
+.business-list li a:hover {
+  background-color: rgba(244, 128, 37, 1);
+}
+.business-list li a:hover::after{
+  opacity: 1;
+}
+.business-list li a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 90px;
+  width: 130px;
+  height: 112px;
+  background: url("../images/bg_common.png") no-repeat;
+  background-position: 0 0;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.business-list li:nth-child(1) a::after{
+  background-position: -169px 0;
+}
+.business-list li:nth-child(2) a::after{
+  background-position: -298px 0;
+}
+.business-list li:nth-child(3) a::after{
+  background-position: 0 -117px;
+}
+.business-list li:nth-child(4) a::after{
+  background-position: -139px -122px;
+}
+.business-list li:nth-child(5) a::after{
+  background-position:-274px -115px;
+  left: 53%;
+  bottom: 80px;
+}
+/* 뉴스 */
+.news{
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 55px 0;
+  background-color: #ed1c24;
+}
+.news-bg{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background-color: #58595b;
+}
+.news-inner{
+  position: relative;
+  display: block;
+}
+.news-wrap{
+  position: relative;
+  display: block;
+  width: calc(50% - 95px);
+}
+.news-wrap:nth-child(1){
+  float: left;
+}
+.news-wrap:nth-child(2){
+  float: right;
+}
+.news-wrap h3{
+  font-size: 32px;
+  color: #fff;
+  font-weight: 300;
+  margin-bottom: 45px;
+}
+.news-content{
+  position: relative;
+  display: block;
+}
+.news-list li{
+  position: relative;
+  display: block;
+  padding: 25px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+.news-list li a{
+  counter-reset: #fff;
+  font-size: 16px;
+  position: relative;
+  display: block;
+}
+.news-list li a::after{
+  position: absolute;
+  content: "";
+  top: -6px;
+  right: 0;
+  display: block;
+  background: url("../images/bg_common.png") no-repeat;
+  background-position: 0 -49px;
+  width: 48px;
+  height: 23px;
+}
+.news-list li a .news-txt{
+  position: relative;
+  display: block;
+  /* 말줄임 표시 */
+  width: 50%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
